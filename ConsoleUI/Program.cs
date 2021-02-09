@@ -13,40 +13,66 @@ namespace ConsoleUI
             CarManager carManager = new CarManager(new EfCarDal());
             BrandManager brandManager = new BrandManager(new EfBrandDal());
             ColorManager colorManager = new ColorManager(new EfColorDal());
+            //GetAllTest();
+            //GetByIdTest();
+            //HatalıEklemeTest();
+            //CarAddedTest();
+            //BrandAddedTest();
+            //ColorAddedTest();
+            
 
-            Console.WriteLine("Tüm Arabalar: ");
-            foreach (var car in carManager.GetAll())
+            foreach (var car in carManager.GetCarDetails())
             {
-                Console.WriteLine(" ID: " + car.Id + " --- Color: " + colorManager.GetById(car.ColorId).ColorName +
-                    " --- Brand Name: " + brandManager.GetById(car.BrandId).BrandName + " --- Model Year: " + car.ModelYear +
-                    " --- Daily Price: " + car.DailyPrice + " --- Description: " + car.Description);
+                Console.WriteLine("Car Name: " + car.CarName + " Brand Name: " + car.BrandName + " Color Name: " + car.ColorName + " Daily Price: " + car.DailyPrice + " TL");
             }
 
-            Console.WriteLine("\n");
+            Console.ReadLine();
+        }
 
-            Console.WriteLine("BrandId'si 1 olan Arabalar: ");
-            foreach (var car in carManager.GetCarsByBrandId(1))
-            {
-                Console.WriteLine(" ID: " +car.Id+" --- Color: "+ colorManager.GetById(car.ColorId).ColorName+
-                    " --- Brand Name: " + brandManager.GetById(car.BrandId).BrandName+ " --- Model Year: " + car.ModelYear+
-                    " --- Daily Price: " + car.DailyPrice+ " --- Description: " + car.Description);
-            }
+        private static void ColorAddedTest()
+        {
+            ColorManager colorManager = new ColorManager(new EfColorDal());
+            colorManager.Add(new Color { ColorId = 5, ColorName = "Gri" });
+        }
 
-            Console.WriteLine("\n");
+        private static void BrandAddedTest()
+        {
+            BrandManager brandManager = new BrandManager(new EfBrandDal());
+            brandManager.Add(new Brand { BrandId = 5, BrandName = "AUDİ" });
+        }
 
-            Console.WriteLine("Günlük Fiyat Aralığı 700 ile 2000 TL Arası Olan Arabalar: ");
-            foreach (var car in carManager.GetByDailyPrice(700,2000))
-            {
-                Console.WriteLine(" ID: " + car.Id + " --- Color: " + colorManager.GetById(car.ColorId).ColorName +
-                    " --- Brand Name: " + brandManager.GetById(car.BrandId).BrandName + " --- Model Year: " + car.ModelYear +
-                    " --- Daily Price: " + car.DailyPrice + " --- Description: " + car.Description);
-            }
+        private static void CarAddedTest()
+        {
+            CarManager carManager = new CarManager(new EfCarDal());
+            carManager.Add(new Car { Id = 7, CarName = "Q7", BrandId = 5, ColorId = 4, ModelYear = 2007, DailyPrice = 1900, Description = "Otomatik" });
+        }
 
-            Console.WriteLine("\n");
-
+        private static void HatalıEklemeTest()
+        {
+            CarManager carManager = new CarManager(new EfCarDal());
+            BrandManager brandManager = new BrandManager(new EfBrandDal());
             carManager.Add(new Car { BrandId = 3, ColorId = 2, DailyPrice = 0, ModelYear = 2005, Description = "Otomatik" });
             brandManager.Add(new Brand { BrandName = "T" });
-            Console.ReadLine();
+        }
+
+        private static void GetByIdTest()
+        {
+            CarManager carManager = new CarManager(new EfCarDal());
+            Console.WriteLine(carManager.GetById(1).CarName);
+            Console.WriteLine("\n");
+        }
+
+        private static void GetAllTest()
+        {
+            Console.WriteLine("TÜM ARABALAR:");
+            CarManager carManager = new CarManager(new EfCarDal());
+            foreach (var car in carManager.GetAll())
+            {
+                Console.WriteLine("ID: " + car.Id + " CAR NAME: " + car.CarName + " BRAND ID: " + car.BrandId +
+                    " COLOR ID: " + car.ColorId + " DAİLY PRİCE: " + car.DailyPrice + " DESCRİPTİON: " + car.Description);
+
+            }
+            Console.WriteLine("\n");
         }
     }
 }

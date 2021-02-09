@@ -13,6 +13,7 @@ namespace Business.Concrete
         public ColorManager(IColorDal colorDal)
         {
             _colorDal = colorDal;
+           
         }
 
         public void Add(Color color)
