@@ -13,6 +13,7 @@ namespace ConsoleUI
             CarManager carManager = new CarManager(new EfCarDal());
             BrandManager brandManager = new BrandManager(new EfBrandDal());
             ColorManager colorManager = new ColorManager(new EfColorDal());
+            RentalManager rentalManager = new RentalManager(new EfRentalDal());
             //GetAllTest();
             //GetByIdTest();
             //HatalıEklemeTest();
@@ -21,7 +22,7 @@ namespace ConsoleUI
             //ColorAddedTest();
 
             var result = carManager.GetCarDetails();
-            if(result.Success==true)
+            if (result.Success == true)
             {
                 foreach (var car in result.Data)
                 {
@@ -32,10 +33,24 @@ namespace ConsoleUI
             {
                 Console.WriteLine(result.Message);
             }
-            
+
+            //RentalAdd(rentalManager);
 
             Console.ReadLine();
         }
+
+        //private static void RentalAdd(RentalManager rentalManager)
+        //{
+        //    var rental = rentalManager.Add(new Rental
+        //    {
+        //        RentalId = 4,
+        //        CarId = 1,
+        //        CustomerId = 2,
+        //        ReturnDate = new DateTime(2021, 02, 12),
+        //        RentDate = DateTime.Today
+        //    });
+        //    Console.WriteLine(rental.Message);
+        //}
 
         //private static void ColorAddedTest()
         //{
