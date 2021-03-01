@@ -49,5 +49,9 @@ namespace Business.Constants
         public static string RentalListed = "Tüm kiralama işlemleri başarıyla listelendi";
 
         public static string FailedImageLimit = "Araç resim ekleme limitine ulaştınız";
+        public static string CarImageDeleted = "Resim silindi";
+        public static string CarImagesListed ="Resim listelendi";
+        public static string CarImageUpdated = "Resim güncellendi";
+        
     }
 }
