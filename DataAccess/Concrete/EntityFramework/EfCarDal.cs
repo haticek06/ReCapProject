@@ -32,34 +32,35 @@ namespace DataAccess.Concrete.EntityFramework
                                  ColorId = color.ColorId,
                                  ColorName = color.ColorName,
                                  DailyPrice = car.DailyPrice,
-                                 CarName = car.Description,
+                                 CarName = car.CarName,
                                  ModelYear = car.ModelYear
 
                              };
                 return filter == null ? result.ToList() : result.Where(filter).ToList();
-                //var result = from c in filter == null ? context.Cars : context.Cars.Where(filter)
-                //             join b in context.Brands
-                //             on c.BrandId equals b.BrandId
-                //             join cr in context.Colors
-                //             on c.ColorId equals cr.ColorId
-                //             //join i in context.CarImages
-                //             //on c.Id equals i.Id
-                //             select new CarDetailDto
-                //             {
-                //                 Id = c.Id,
-                //                 CarName = c.CarName,
-                //                 BrandName = b.BrandName,
-                //                 ColorName = cr.ColorName,
-                //                 ModelYear = c.ModelYear,
-                //                 DailyPrice = c.DailyPrice,
-                //                 Description = c.Description,
-                //                 ImagePath = context.CarImages.Where(x => x.CarId == c.Id).FirstOrDefault().ImagePath
-
-                //             };
-
-                //return result.ToList();
+           
 
             }
         }
+
+        //public CarDetailDto GetCarFilter(Expression<Func<CarDetailDto, bool>> filter)
+        //{
+        //    using (ReCapProjectDBContext context = new ReCapProjectDBContext())
+        //    {
+        //        var result = from c in context.Cars
+        //                     join b in context.Brands on c.BrandId equals b.BrandId
+        //                     join r in context.Colors on c.ColorId equals r.ColorId
+        //                     let i = context.CarImages.Where(x => x.CarId == c.Id).FirstOrDefault()
+        //                     select new CarDetailDto()
+        //                     {
+        //                         Id = c.Id,
+        //                         BrandName = b.BrandName,
+        //                         DailyPrice = c.DailyPrice,
+        //                         ColorName = r.ColorName,
+        //                         Description = c.Description,
+        //                         ImagePath = i.ImagePath
+        //                     };
+        //        return result.SingleOrDefault(filter);
+        //    }
+        //}
     }
 }
