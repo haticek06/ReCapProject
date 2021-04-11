@@ -27,6 +27,8 @@ namespace Entities.DTOs
         public string ImagePath { get; set; }
         public DateTime? CarImageDate { get; set; }
         public string Description { get; set; }
-        
+
+        public int FindexScore { get; set; }
+
     }
 }

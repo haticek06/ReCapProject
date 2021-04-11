@@ -43,6 +43,13 @@ namespace Business.Constants
         public static string UserDeleted = "Kullanıcı başarıyla silindi.";
         public static string UserIdListed = "Kullanıcı id'ye göre başarıyla listelendi.";
 
+        public static string AddUserMessage = "Üye başarıyla eklendi.";
+
+        public static string DeleteUserMessage = "Üye başarıyla silindi.";
+        public static string EditUserMessage = "Üye başarıyla güncellendi.";
+        public static string GetSuccessUserMessage = "Üye bilgisi / bilgileri getirildi.";
+        public static string GetErrorUserMessage = "Üye bilgisi / bilgileri getirilemedi.";
+
         public static string RentalAddedError = "Aracın kiraya verilebilmesi için önce teslim edilmesi gerekir.";
         public static string RentalAdded = "Kiralama işlemi başarılı";
         public static string RentalDelete = "Kiralama işlemi başarıyla silindi";
@@ -60,6 +67,13 @@ namespace Business.Constants
         public static string SuccessfulLogin = "Sisteme giriş başarılı";
         public static string UserAlreadyExists = "Bu kullanıcı zaten mevcut";
         public static string UserRegistered = "Kullanıcı başarıyla kaydedildi";
-        
+
+        public static string Registered = "Başarıyla kayıt olundu";
+
+        public static string WrongPassword = "Yanlış parola";
+ 
+        public static string UserAvailable = "Kullanıcı mevcut";
+        public static string TokenCreated = "Token oluşturuldu.";
+
     }
 }
